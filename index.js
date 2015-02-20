@@ -43,8 +43,8 @@ var getSocket = function (type) {
         socket.on('error', socketErrorHandler)
 
         // HACK: On Node v0.11.x bind the socket to ensure that it works when clustering
-        // THis should be a temporary fix until node fixes the cluster module
-        if (/^v0\.11\..*$/.test(process.version)) {
+        // This should be a temporary fix until node fixes the cluster module
+        if (/^v0\.[12]\..*$/.test(process.version)) {
           socket.bind({
             port: 0,
             exclusive: true
